@@ -1,7 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
-    <ion-title>
-      Videos App
+    <ion-title> {{titulo}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,61 +13,33 @@
 
   <ion-list>
 
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let filme of listaVideos">
   <ion-item lines="full">
     <ion-thumbnail slot="start">
-      <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pSr0JjkI9iM1Yxe9cqrS6YBonAA.jpg" />
+      <img [src]="filme.cartaz" />
     </ion-thumbnail>
 
     <ion-label class="ion-text-wrap">
       <div>
-        <h1>Gato de Botas 2: O Último Pedido (2022)</h1>
-        <p>05/01/2023 (BR) - 1h 43m</p>
-        <p>Animação, Aventura, Comédia, Família, Fantasia</p>
+        <h1>{{filme.nome}}</h1>
+        <p>{{filme.lancamento}} - {{filme.duracao}}</p>
+        <ion-badge color="light" *ngFor="let genero of filme.generos">{{genero}}</ion-badge>
       </div>
     </ion-label>
 
     <ion-chip color="success" outline>
       <!-- <ion-icon name="pin" color="primary"></ion-icon> -->
-      <ion-label>86%</ion-label>
+      <ion-label>{{filme.classificacao}}%</ion-label>
       <!-- <ion-icon name="close"></ion-icon> -->
     </ion-chip>
   </ion-item>
 
   <ion-item-options side="end">
-    <ion-item-options (click)="exibirAlertaFavorito()">
+    <ion-item-option color="laranja" (click)="exibirAlertaFavorito()">
       <ion-icon slot="icon-only" name="star"></ion-icon>
-    </ion-item-options>
+    </ion-item-option>
   </ion-item-options>
   </ion-item-sliding>
-
-  <ion-item-sliding>
-    <ion-item lines="full">
-      <ion-thumbnail slot="start">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aT2vdnR3qifI21f7fHTqYW5iAAz.jpg" />
-      </ion-thumbnail>
-
-      <ion-label class="ion-text-wrap">
-        <div>
-          <h1>Sonic 2 - O Filme (2022)</h1>
-          <p>07/04/2022 (BR) - 2h 2m</p>
-          <p>Ação, Aventura, Família, Comédia</p>
-        </div>
-      </ion-label>
-
-      <ion-chip color="success" outline>
-        <!-- <ion-icon name="pin" color="primary"></ion-icon> -->
-        <ion-label>76%</ion-label>
-        <!-- <ion-icon name="close"></ion-icon> -->
-      </ion-chip>
-    </ion-item>
-
-    <ion-item-options side="end">
-      <ion-item-options (click)="exibirAlertaFavorito()">
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-      </ion-item-options>
-    </ion-item-options>
-    </ion-item-sliding>
 
 </ion-list>
 </ion-content>

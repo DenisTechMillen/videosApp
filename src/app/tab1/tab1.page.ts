@@ -1,3 +1,4 @@
+import { IFilme } from './../models/IFilme.model';
 import { Component } from '@angular/core';
 import { AlertController} from '@ionic/angular';
 import { ToastController} from '@ionic/angular';
@@ -8,6 +9,35 @@ import { ToastController} from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+
+  titulo = 'Videos App';
+
+  listaVideos: IFilme[] = [
+    {
+      nome: 'Gato de Botas 2: O Último Pedido (2022)',
+      lancamento: '05/01/2023',
+      duracao: '1h 43m',
+      classificacao: 86,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pSr0JjkI9iM1Yxe9cqrS6YBonAA.jpg',
+      generos: ['Animação', 'Aventura', 'Comédia', 'Família', 'Fantasia']
+    },
+    {
+      nome: 'Sonic 2 - O Filme (2022)',
+      lancamento: '07/04/2022',
+      duracao: '2h 2m',
+      classificacao: 100,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aT2vdnR3qifI21f7fHTqYW5iAAz.jpg',
+      generos: ['Ação', 'Aventura', 'Família', 'Comédia']
+    },
+    {
+      nome: 'Avatar: O Caminho da Água (2022)',
+      lancamento: '15/12/2022',
+      duracao: '3h 12m',
+      classificacao: 77,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnmdUnztAYbfJ0jhjpN6oxwP2sb.jpg',
+      generos: ['Ficção científica', 'Aventura', 'Ação']
+    }
+  ];
 
   constructor(public alertController: AlertController, public toastController: ToastController) {}
 
